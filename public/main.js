@@ -5,7 +5,7 @@ const deleteButton = document.querySelector('#delete-button')
 const messageDiv = document.querySelector('#message')
 
 update.addEventListener('click', _ => {
-  fetch('/quotes', {
+  fetch('quotes', {
     method: 'put',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -22,7 +22,7 @@ update.addEventListener('click', _ => {
 })
 
 deleteButton.addEventListener('click', _ => {
-  fetch('/quotes', {
+  fetch('quotes', {
     method: 'delete',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
