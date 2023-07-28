@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const MongoClient = require('mongodb').MongoClient
+const { MongoClient } = require('mongodb')
 const app = express()
 
 // ========================
@@ -12,8 +12,9 @@ require('./dotenv')
 
 // Replace process.env.DB_URL with your actual connection string
 const connectionString = process.env.DB_URL
+const client = new MongoClient(connectionString);
 
-MongoClient.connect(connectionString, { useUnifiedTopology: true })
+client.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
     console.log('Connected to Database')
     const db = client.db('star-wars-quotes')
